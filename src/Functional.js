@@ -23,7 +23,7 @@ function Functional() {
               onChange={handleChange}
             />
 
-            <label for={item}>{item}</label>
+            <label htmlFor={item}>{item}</label>
             <br />
           </React.Fragment>
         );
