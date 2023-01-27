@@ -20,8 +20,10 @@ npm start
 
 ## Commands
 ```
-npm run start                 # Start webpack-dev-server
-npm run build                 # Build compiled assets
+npm run start                 # Start webpack-dev-server (Production)
+npm run start:dev             # Start webpack-dev-server (Development)
+npm run build                 # Build compiled assets (Production)
+npm run build:dev             # Build compiled assets (Development)
 npm run lint                  # Check formatting
 npm run lint:fix              # Fix formatting
 ```
