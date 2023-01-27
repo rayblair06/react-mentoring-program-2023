@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import '../../styles/app.scss';
+import { FC, PropsWithChildren } from 'react';
+import 'styles/app.scss';
 
-const Button = ({ children }: { children: ReactNode }) => <button type="button">{children}</button>;
+const Button: FC<PropsWithChildren> = ({ children }) => <button type="button">{children}</button>;
 
 export default Button;

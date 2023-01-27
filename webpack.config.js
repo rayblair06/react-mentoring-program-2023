@@ -1,14 +1,20 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["./src/index.tsx", "./src/styles/app.scss"],
+  entry: ['./src/index.tsx', './src/styles/app.scss'],
   output: {
-    filename: "app.js",
-    path: path.join(__dirname, "/dist/"),
+    filename: 'app.js',
+    path: path.join(__dirname, '/dist/'),
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+      images: path.resolve(__dirname, 'src/images/'),
+      interfaces: path.resolve(__dirname, 'src/interfaces/'),
+      styles: path.resolve(__dirname, 'src/styles/'),
+    },
   },
   module: {
     rules: [
@@ -17,31 +23,31 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
           },
           {
-            loader: "ts-loader",
+            loader: 'ts-loader',
           },
         ],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        loader: "file-loader",
+        loader: 'file-loader',
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "bundle.css",
+          filename: 'bundle.css',
         },
-        use: ["sass-loader"],
+        use: ['sass-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
   ],
 

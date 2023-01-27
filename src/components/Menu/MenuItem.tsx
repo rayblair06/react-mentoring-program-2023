@@ -1,6 +1,10 @@
-import React from 'react';
-import '../../styles/app.scss';
+import 'styles/app.scss';
+import { FC } from 'react';
 
-const MenuItem = ({ item }: { item: string }) => <li>{item}</li>;
+interface MenuItemProps {
+  item: string;
+}
+
+const MenuItem: FC<MenuItemProps> = ({ item }) => <li>{item}</li>;
 
 export default MenuItem;

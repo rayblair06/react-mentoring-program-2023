@@ -1,17 +1,21 @@
-import React from 'react';
-import '../../styles/app.scss';
-import { MovieCard as MovieProps } from '../../interfaces/Movie';
+import 'styles/app.scss';
+import { Movie } from 'interfaces/Movie';
+import { FC } from 'react';
 
-const MovieCard = ({ image = '-', name = '-', releaseDate = '-', genres = ['-'] }: MovieProps) => (
+interface MovieCardProps {
+  movie: Movie;
+}
+
+const MovieCard: FC<MovieCardProps> = ({ movie }) => (
   <div className="card">
-    <img src={image} alt={image} />
+    <img src={movie.image} alt={movie.image} />
 
     <div className="card__title">
-      <p>{name}</p>
+      <p>{movie.name}</p>
 
-      <span>{releaseDate}</span>
+      <span>{movie.releaseDate.getFullYear()}</span>
     </div>
-    <p className="card__subtitle">{genres.join(', ').toString()}</p>
+    <p className="card__subtitle">{movie.genres.join(', ').toString()}</p>
   </div>
 );
 

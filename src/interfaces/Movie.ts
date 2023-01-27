@@ -1,17 +1,14 @@
-export interface Movie {
-  id: any;
-  name: string;
-  genres: Array<string>;
-  image: string;
-  releaseDate: string;
-  runtime: string;
-  rating: string;
-  overview: string;
-}
+import { GenreEnum } from '../constants';
 
-export interface MovieCard {
+export interface Movies extends Array<Movie> {}
+
+export interface Movie {
+  id: number;
   name: string;
-  genres: Array<string>;
+  genres: GenreEnum[];
   image: string;
-  releaseDate: string;
+  releaseDate: Date;
+  runtime: string;
+  rating: number;
+  overview: string;
 }
