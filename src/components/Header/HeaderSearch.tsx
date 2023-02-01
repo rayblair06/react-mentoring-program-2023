@@ -1,6 +1,5 @@
-import React from 'react';
-import '../../styles/app.scss';
-import Button from '../Utilities/Button';
+import 'styles/app.scss';
+import Button from 'components/Utilities/Button';
 
 const HeaderSearch = () => (
   <div id="search">

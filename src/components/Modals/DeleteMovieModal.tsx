@@ -1,18 +1,20 @@
-import React from 'react';
-import '../../styles/app.scss';
+import { FC } from 'react';
+import 'styles/app.scss';
 import Modal from '../Utilities/Modal';
 import { Movie } from '../../interfaces/Movie';
 
-const DeleteMovieModal = ({
+interface DeleteMovieModalProps {
+  show: boolean;
+  handleClose: (...args: any[]) => void;
+  handleRemoveMovie: (...args: any[]) => void;
+  movie?: Movie;
+}
+
+const DeleteMovieModal: FC<DeleteMovieModalProps> = ({
   show = false,
   handleClose,
   handleRemoveMovie,
   movie,
-}: {
-  show: any;
-  handleClose: any;
-  handleRemoveMovie: any;
-  movie?: Movie;
 }) => (
   <Modal show={show} handleClose={handleClose}>
     <div style={{ margin: '50px' }}>

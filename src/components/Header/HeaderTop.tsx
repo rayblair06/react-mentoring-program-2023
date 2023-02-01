@@ -1,12 +1,17 @@
-import React from 'react';
-import '../../styles/app.scss';
-import LogoImage from '../../images/netflixroulette.png';
-import Button from '../Utilities/Button';
+import { FC } from 'react';
+import 'styles/app.scss';
+import LogoImage from 'images/netflixroulette.png';
+import Button from 'components/Utilities/Button';
 
-const HeaderTop = ({ handleOpenModal }: { handleOpenModal: any }) => (
+interface HeaderTopProps {
+  title: string;
+  handleOpenModal: (...args: any[]) => void;
+}
+
+const HeaderTop: FC<HeaderTopProps> = ({ title, handleOpenModal }) => (
   <div id="top">
     <div>
-      <img src={LogoImage} alt={LogoImage} />
+      <img src={LogoImage} alt={title} />
     </div>
 
     <div>

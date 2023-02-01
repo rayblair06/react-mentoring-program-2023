@@ -1,32 +1,22 @@
-import React, { useState } from 'react';
-import '../../styles/app.scss';
-import Modal from '../Utilities/Modal';
+import { FC } from 'react';
+import 'styles/app.scss';
 import Select from 'react-select';
-import { Movie } from 'src/interfaces/Movie';
+import { Movie } from 'interfaces/Movie';
 
-const MovieForm = ({ movie }: { movie?: Movie }) => {
-  const [showDropdown, setDropdown] = useState(false);
+interface MovieFormProps {
+  movie?: Movie;
+  genres: Array<string>;
+}
 
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
-
-  const handleShowDropdown = () => {
-    setDropdown(true);
-  };
-
-  const handleHideDropdown = () => {
-    setDropdown(false);
-  };
+const MovieForm: FC<MovieFormProps> = ({ movie, genres }) => {
+  const options = genres.map((genre) => ({ value: genre, label: genre }));
 
   return (
     <div className="row">
       <div className="column">
         <label>
           Title
-          <input type="text" placeholder="Title" value={movie?.title ? movie.title : ''} />
+          <input type="text" placeholder="Title" value={movie?.name ? movie.name : ''} />
         </label>
       </div>
 
@@ -36,7 +26,7 @@ const MovieForm = ({ movie }: { movie?: Movie }) => {
           <input
             type="date"
             placeholder="Select Date"
-            value={movie?.release_date ? movie.release_date : ''}
+            value={movie?.releaseDate ? movie.releaseDate.getFullYear() : ''}
           />
         </label>
       </div>
@@ -54,12 +44,8 @@ const MovieForm = ({ movie }: { movie?: Movie }) => {
 
       <div className="column">
         <label>
-          vote_average
-          <input
-            type="text"
-            placeholder="7.8"
-            value={movie?.vote_average ? movie.vote_average : ''}
-          />
+          Rating
+          <input type="text" placeholder="7.8" value={movie?.rating ? movie.rating : ''} />
         </label>
       </div>
 

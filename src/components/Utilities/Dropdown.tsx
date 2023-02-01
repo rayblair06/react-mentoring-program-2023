@@ -1,24 +1,20 @@
-import React, { ReactNode } from 'react';
-import '../../styles/app.scss';
+import { FC, ReactNode } from 'react';
+import 'styles/app.scss';
 
-const Dropdown = ({
-  show = false,
-  handleClose,
-  children,
-}: {
-  show: any;
-  handleClose?: any;
+interface DropdownProps {
+  show: boolean;
+  handleClose: (...args: any[]) => void;
   children: ReactNode;
-}) => {
-  return (
-    <>
-      {show && (
-        <ul className="custom-menu" onMouseLeave={handleClose}>
-          {children}
-        </ul>
-      )}
-    </>
-  );
-};
+}
+
+const Dropdown: FC<DropdownProps> = ({ show = false, handleClose, children }) => (
+  <>
+    {show && (
+      <ul className="custom-menu" onMouseLeave={handleClose}>
+        {children}
+      </ul>
+    )}
+  </>
+);
 
 export default Dropdown;

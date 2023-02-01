@@ -1,16 +1,14 @@
+import { GenreEnum } from '../constants';
+
 export interface Movies extends Array<Movie> {}
 
 export interface Movie {
   id: number;
-  title: string;
-  tagline?: string;
-  vote_average: number;
-  vote_count?: number;
-  release_date: string;
-  poster_path: any;
+  name: string;
+  genres: GenreEnum[];
+  image: string;
+  releaseDate: Date;
+  runtime: string;
+  rating: number;
   overview: string;
-  budget?: number;
-  revenue?: number;
-  genres: Array<string>;
-  runtime: number;
 }

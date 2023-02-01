@@ -10,7 +10,14 @@
         "esModuleInterop": true,
         "target": "es5",
         "allowJs": true,
-        "baseUrl": ".",
+        "baseUrl":"src",
+        "paths":{
+            "@components/*":["src/components/*"],
+            "@images/*":["src/images/*"],
+            "@interfaces/*":["src/interfaces/*"],
+            "@styles/*":["src/styles/*"],
+            "@utilities/*":["src/utilities/*"],
+        },
         "jsx": "react-jsx",
     },
     "include": [

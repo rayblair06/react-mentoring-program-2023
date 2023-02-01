@@ -1,5 +1,4 @@
-import React from 'react';
-import '../../styles/app.scss';
+import 'styles/app.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 

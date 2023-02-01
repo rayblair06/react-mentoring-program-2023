@@ -1,19 +1,23 @@
-import React from 'react';
-import '../../styles/app.scss';
+import { FC } from 'react';
+import 'styles/app.scss';
 import Modal from '../Utilities/Modal';
 import { Movie } from '../../interfaces/Movie';
 import MovieForm from '../Movie/MovieForm';
 
-const EditMovieModal = ({
+interface EditMovieModalProps {
+  show: boolean;
+  handleClose: (...args: any[]) => void;
+  handleEditMovie: (...args: any[]) => void;
+  movie?: Movie;
+  genres: Array<string>;
+}
+
+const EditMovieModal: FC<EditMovieModalProps> = ({
   show = false,
   handleClose,
   handleEditMovie,
   movie,
-}: {
-  show: any;
-  handleClose: any;
-  handleEditMovie: any;
-  movie?: Movie;
+  genres,
 }) => (
   <Modal show={show} handleClose={handleClose}>
     <div id="edit-movie-modal">
@@ -21,7 +25,7 @@ const EditMovieModal = ({
         <h1>Edit Movie</h1>
       </div>
 
-      <MovieForm movie={movie} />
+      <MovieForm movie={movie} genres={genres} />
 
       <div style={{ textAlign: 'right' }}>
         <button type="button" className="button-outline">

@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import '../../styles/app.scss';
+import { FC, PropsWithChildren } from 'react';
+import 'styles/app.scss';
 
-const Container = ({ children }: { children: ReactNode }) => (
+const Container: FC<PropsWithChildren> = ({ children }) => (
   <div className="container">{children}</div>
 );
 
