@@ -1,20 +1,23 @@
 {
-  "name": "react-mentoring-program-2022",
+  "name": "react-mentoring-program-2023",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-regular-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "js-tokens": "^4.0.0",
     "loose-envify": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select": "^5.7.0",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "webpack serve --mode production",
-    "start:dev": "webpack serve --mode development",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
     "lint": "prettier 'src/**' --check",
     "lint:fix": "prettier 'src/**' --write",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayblair06/react-mentoring-program-2022.git"
+    "url": "git+https://github.com/rayblair06/react-mentoring-program-2023.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rayblair06/react-mentoring-program-2022/issues"
+    "url": "https://github.com/rayblair06/react-mentoring-program-2023/issues"
   },
-  "homepage": "https://github.com/rayblair06/react-mentoring-program-2022#readme",
+  "homepage": "https://github.com/rayblair06/react-mentoring-program-2023#readme",
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",

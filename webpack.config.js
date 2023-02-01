@@ -9,12 +9,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {
-      components: path.resolve(__dirname, 'src/components/'),
-      images: path.resolve(__dirname, 'src/images/'),
-      interfaces: path.resolve(__dirname, 'src/interfaces/'),
-      styles: path.resolve(__dirname, 'src/styles/'),
-    },
   },
   module: {
     rules: [

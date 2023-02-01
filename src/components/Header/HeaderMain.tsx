@@ -1,14 +1,15 @@
-import 'styles/app.scss';
+import React from 'react';
+import '../../styles/app.scss';
 import HeaderSearch from './HeaderSearch';
 
 const HeaderMain = () => (
-  <main>
+  <div id="main">
     <div>
       <h1>Find your movie</h1>
     </div>
 
     <HeaderSearch />
-  </main>
+  </div>
 );
 
 export default HeaderMain;

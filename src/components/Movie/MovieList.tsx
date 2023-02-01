@@ -1,24 +1,35 @@
-import 'styles/app.scss';
+import React, { useState } from 'react';
+import '../../styles/app.scss';
 import MovieCard from './MovieCard';
-import { Movie } from 'interfaces/Movie';
-import { FC } from 'react';
+import { Movies, Movie } from '../../interfaces/Movie';
 
-interface MovieListProps {
-  movies: Array<Movie>;
-}
+const MovieList = ({
+  movies,
+  handleOpenModal,
+  handleSelectedMovie,
+}: {
+  movies: Movies;
+  handleOpenModal: any;
+  handleSelectedMovie: any;
+}) => {
+  return (
+    <div id="movielist">
+      <p id="results">
+        <span>{movies.length}</span> movies found
+      </p>
 
-const MovieList: FC<MovieListProps> = ({ movies }) => (
-  <div id="movielist">
-    <p id="results">
-      <span>{movies.length}</span> movies found
-    </p>
-
-    <div id="movielist__container">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      <div id="movielist__container">
+        {movies.map((movie: Movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            handleOpenModal={handleOpenModal}
+            handleSelectedMovie={handleSelectedMovie}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MovieList;

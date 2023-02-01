@@ -1,8 +1,8 @@
-import { FC, PropsWithChildren } from 'react';
-import HeaderImage from 'images/header.png';
-import 'styles/app.scss';
+import React, { ReactNode } from 'react';
+import HeaderImage from '../../images/header.png';
+import '../../styles/app.scss';
 
-const Header: FC<PropsWithChildren> = ({ children }) => (
+const Header = ({ children }: { children: ReactNode }) => (
   <div
     id="header"
     style={{

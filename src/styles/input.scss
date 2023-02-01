@@ -1,3 +1,37 @@
 button {
   cursor: pointer;
 }
+
+.button {
+  width: 180px;
+  background: #f65261;
+  border: none;
+  border-radius: 4px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 15px;
+  padding: 12px 16px;
+  color: #ffffff;
+}
+
+.button-outline {
+  width: 180px;
+  background: transparent;
+  border: 1px solid #f65261;
+  border-radius: 4px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 15px;
+  padding: 12px 16px;
+  color: #f65261;
+}

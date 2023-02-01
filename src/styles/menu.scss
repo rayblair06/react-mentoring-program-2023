@@ -21,6 +21,8 @@
 
   #filters {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     p:nth-child(1) {
       padding: 15px;
@@ -33,6 +35,10 @@
     p:nth-child(2) {
       padding: 15px;
       color: #ffffff;
+    }
+
+    p:nth-child(3) {
+      color: #f65261;
     }
   }
 }

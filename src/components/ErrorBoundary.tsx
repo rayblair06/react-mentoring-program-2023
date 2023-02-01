@@ -1,34 +1,15 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+/* eslint-disable react/jsx-no-useless-fragment */
+import React, { ReactNode } from 'react';
+import '../styles/app.scss';
 
-interface Props {
-  children?: ReactNode;
-}
+const OopsText = () => (
+  <h2>Oops, something went wrong... We are doing our best to fix the issue.</h2>
+);
 
-interface State {
-  hasError: boolean;
-}
+const ErrorBoundary = ({ children }: { children: ReactNode }) => {
+  const isEverythingOK = true;
 
-class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  public static getDerivedStateFromError(): State {
-    return { hasError: true };
-  }
-
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log('Uncaught error:', error, errorInfo);
-  }
-
-  public render() {
-    if (this.state.hasError) {
-      return <h1>Whoops, something went wrong!</h1>;
-    }
-
-    return this.props.children;
-  }
-}
+  return <>{isEverythingOK ? children : <OopsText />}</>;
+};
 
 export default ErrorBoundary;
