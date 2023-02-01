@@ -34,7 +34,14 @@ const MovieCard: FC<MovieCardProps> = ({ key, movie, handleOpenModal, handleSele
   };
 
   return (
-    <div className="card" onMouseEnter={handleShowOptions} onMouseLeave={handleHideOptions}>
+    <div
+      className="card"
+      onMouseEnter={handleShowOptions}
+      onMouseLeave={handleHideOptions}
+      onClick={() => {
+        handleSelectedMovie(movie.id);
+      }}
+    >
       {showOptions && (
         <div className="options" onClick={handleShowDropdown}>
           <div>

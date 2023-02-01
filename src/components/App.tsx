@@ -10,6 +10,7 @@ import ReservoirDogsPoster from 'images/reservior-dogs.png';
 import Page from 'components/Utilities/Page';
 import Header from 'components/Header/Header';
 import HeaderTop from 'components/Header/HeaderTop';
+import HeaderMovie from 'components/Header/HeaderMovie';
 import HeaderMain from 'components/Header/HeaderMain';
 import Footer from 'components/Footer';
 import Menu from 'components/Menu/Menu';
@@ -23,6 +24,7 @@ import { GenreEnum } from '../constants';
 import AddMovieModal from './Modals/AddMovieModal';
 import EditMovieModal from './Modals/EditMovieModal';
 import DeleteMovieModal from './Modals/DeleteMovieModal';
+import HeaderImage from 'images/header.png';
 
 WebFont.load({
   google: {
@@ -32,7 +34,7 @@ WebFont.load({
 
 interface InitialStateProps {
   app: AppConfig;
-  selectedMovie: number;
+  selectedMovie: number | null;
   genres: Array<string>;
   menu: Array<string>;
   movies: Movies;
@@ -42,7 +44,7 @@ const initialState: InitialStateProps = {
   app: {
     title: 'Netflix Roulette',
   },
-  selectedMovie: 0,
+  selectedMovie: null,
   genres: [
     'Action & Adventure',
     'Biography',
@@ -169,10 +171,19 @@ const App = () => {
 
   return (
     <Page>
-      <Header>
-        <HeaderTop title={app.title} handleOpenModal={handleOpenModal} />
-        <HeaderMain />
-      </Header>
+      {selectedMovie ? (
+        <Header styles={{ background: `#232323` }}>
+          <HeaderMovie
+            movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
+            handleSelectedMovie={handleSelectedMovie}
+          />
+        </Header>
+      ) : (
+        <Header styles={{ background: `url(${HeaderImage})` }}>
+          <HeaderTop title={app.title} handleOpenModal={handleOpenModal} />
+          <HeaderMain />
+        </Header>
+      )}
 
       <div className="header-trim" />
 

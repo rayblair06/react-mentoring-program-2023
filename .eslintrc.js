@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2018,
