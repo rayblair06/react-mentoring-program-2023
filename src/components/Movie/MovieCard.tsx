@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Movie } from '../../interfaces/Movie';
+import { Movie } from 'interfaces/Movie';
+import { FC, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '../Utilities/Dropdown';
 
-const MovieCard = ({
-  key,
-  movie,
-  handleOpenModal,
-  handleSelectedMovie,
-}: {
-  key: any;
+interface MovieCardProps {
+  key: number;
   movie: Movie;
-  handleOpenModal: any;
-  handleSelectedMovie: any;
-}) => {
+  handleOpenModal: (...args: any[]) => void;
+  handleSelectedMovie: (...args: any[]) => void;
+}
+
+const MovieCard: FC<MovieCardProps> = ({ key, movie, handleOpenModal, handleSelectedMovie }) => {
   const [showOptions, setOptions] = useState(false);
 
   const handleShowOptions = () => {
@@ -66,33 +63,12 @@ const MovieCard = ({
         </li>
       </Dropdown>
 
-      {/* <ul className="custom-menu" onMouseLeave={handleHideDropdown}>
-          <li
-            data-action="edit"
-            onClick={() => {
-              handleOpenModal('editMovieModal');
-              handleSelectedMovie(movie.id);
-            }}
-          >
-            Edit
-          </li>
-          <li
-            data-action="delete"
-            onClick={() => {
-              handleOpenModal('deleteMovieModal');
-              handleSelectedMovie(movie.id);
-            }}
-          >
-            Delete
-          </li>
-        </ul> */}
-
-      <img src={movie.poster_path} alt={movie.poster_path} height="455" width="322" />
+      <img src={movie.image} alt={movie.image} height="455" width="322" />
 
       <div className="card__title">
-        <p>{movie.title}</p>
+        <p>{movie.name}</p>
 
-        <span>{movie.release_date}</span>
+        <span>{movie.releaseDate.getFullYear()}</span>
       </div>
       <p className="card__subtitle">{movie.genres.join(', ').toString()}</p>
     </div>

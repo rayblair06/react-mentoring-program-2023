@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-const Container = ({ children }: { children: ReactNode }) => (
+const Container: FC<PropsWithChildren> = ({ children }) => (
   <div className="container">{children}</div>
 );
 

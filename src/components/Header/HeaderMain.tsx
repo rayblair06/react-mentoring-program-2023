@@ -1,14 +1,13 @@
-import React from 'react';
 import HeaderSearch from './HeaderSearch';
 
 const HeaderMain = () => (
-  <div id="main">
+  <main>
     <div>
       <h1>Find your movie</h1>
     </div>
 
     <HeaderSearch />
-  </div>
+  </main>
 );
 
 export default HeaderMain;

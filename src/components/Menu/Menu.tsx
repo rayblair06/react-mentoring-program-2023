@@ -1,17 +1,28 @@
-import React from 'react';
+import { FC } from 'react';
 import MenuFilters from './MenuFilters';
 import MenuItem from './MenuItem';
 
-const Menu = ({ menu }: { menu: Array<string> }) => (
-  <div id="menu">
-    <ul>
-      {menu.map((item) => (
-        <MenuItem item={item} key={item} />
-      ))}
-    </ul>
+interface MenuProps {
+  menu: Array<string>;
+}
 
-    <MenuFilters />
-  </div>
-);
+const Menu: FC<MenuProps> = ({ menu }) => {
+  const menuItems = Array.from(menu).map((_value) => ({
+    name: _value,
+    id: crypto.randomUUID(),
+  }));
+
+  return (
+    <div id="menu">
+      <ul>
+        {menuItems.map((item) => (
+          <MenuItem item={item.name} key={item.id} />
+        ))}
+      </ul>
+
+      <MenuFilters />
+    </div>
+  );
+};
 
 export default Menu;

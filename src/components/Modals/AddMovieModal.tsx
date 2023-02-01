@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
-import '../../styles/app.scss';
+import { FC } from 'react';
+import 'styles/app.scss';
 import Modal from '../Utilities/Modal';
-import Select from 'react-select';
 import MovieForm from '../Movie/MovieForm';
 
-const AddMovieModal = ({
-  show = false,
-  handleClose,
-  handleAddMovie,
-}: {
+interface AddMovieModalProps {
   show: any;
   handleClose: any;
   handleAddMovie: any;
+  genres: Array<string>;
+}
+
+const AddMovieModal: FC<AddMovieModalProps> = ({
+  show = false,
+  handleClose,
+  handleAddMovie,
+  genres,
 }) => {
-  const [showDropdown, setDropdown] = useState(false);
-
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
-
-  const handleShowDropdown = () => {
-    setDropdown(true);
-  };
-
-  const handleHideDropdown = () => {
-    setDropdown(false);
+  const handleReset = () => {
+    // TODO: Implement in Task 5
   };
 
   return (
@@ -36,17 +27,17 @@ const AddMovieModal = ({
           <h1>Add Movie</h1>
         </div>
 
-        <MovieForm />
+        <MovieForm genres={genres} />
 
         <div style={{ textAlign: 'right' }}>
-          <button type="button" className="button-outline">
+          <button type="button" className="button-outline" onClick={handleReset}>
             Reset
           </button>
           <button
             type="button"
             className="button"
             onClick={() => {
-              // handleAddMovie(movie); TODO:
+              // handleAddMovie(movie); TODO: To be completed in Task 5
               handleClose();
             }}
           >
