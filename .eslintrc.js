@@ -7,8 +7,6 @@ module.exports = {
     'airbnb-typescript',
     'eslint:recommended',
     'plugin:react/recommended',
-    'prettier',
-    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaVersion: 2018,

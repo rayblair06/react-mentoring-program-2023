@@ -1,9 +1,5 @@
-import { FC } from 'react';
+import React from 'react';
 
-interface MenuItemProps {
-  item: string;
-}
-
-const MenuItem: FC<MenuItemProps> = ({ item }) => <li>{item}</li>;
+const MenuItem = ({ item }: { item: string }) => <li>{item}</li>;
 
 export default MenuItem;

@@ -1,20 +1,15 @@
-import { FC } from 'react';
+import React from 'react';
+import LogoImage from '../../images/netflixroulette.png';
+import Button from '../Utilities/Button';
 
-import LogoImage from 'images/netflixroulette.png';
-import Button from 'components/Utilities/Button';
-
-interface HeaderTopProps {
-  title: string;
-}
-
-const HeaderTop: FC<HeaderTopProps> = ({ title }) => (
+const HeaderTop = ({ handleOpenModal }: { handleOpenModal: any }) => (
   <div id="top">
     <div>
-      <img src={LogoImage} alt={title} />
+      <img src={LogoImage} alt={LogoImage} />
     </div>
 
     <div>
-      <Button>+ Add Movie</Button>
+      <Button onClick={() => handleOpenModal('addMovieModal')}>+ Add Movie</Button>
     </div>
   </div>
 );

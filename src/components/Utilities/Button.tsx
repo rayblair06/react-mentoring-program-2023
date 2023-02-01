@@ -1,5 +1,9 @@
-import { FC, PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 
-const Button: FC<PropsWithChildren> = ({ children }) => <button type="button">{children}</button>;
+const Button = ({ onClick = {}, children }: { onClick?: any; children: ReactNode }) => (
+  <button onClick={() => onClick('')} type="button">
+    {children}
+  </button>
+);
 
 export default Button;

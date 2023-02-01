@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 
-const Footer: FC<PropsWithChildren> = ({ children }) => <div id="footer">{children}</div>;
+const Footer = ({ children }: { children: ReactNode }) => <div id="footer">{children}</div>;
 
 export default Footer;

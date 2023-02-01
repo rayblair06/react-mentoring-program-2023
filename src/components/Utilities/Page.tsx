@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 
-const Page: FC<PropsWithChildren> = ({ children }) => <div id="page">{children}</div>;
+const Page = ({ children }: { children: ReactNode }) => <div id="page">{children}</div>;
 
 export default Page;
