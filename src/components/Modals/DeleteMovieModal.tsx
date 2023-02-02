@@ -1,5 +1,5 @@
 import { FC } from 'react';
-   
+
 import Modal from '../Utilities/Modal';
 import { Movie } from '../../interfaces/Movie';
 

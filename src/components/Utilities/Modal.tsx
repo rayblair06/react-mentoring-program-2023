@@ -1,5 +1,4 @@
 import { FC, ReactNode } from 'react';
-   
 
 interface ModalProps {
   show: boolean;
@@ -10,9 +9,9 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ show = false, children, handleClose }) => (
   <div className={`modal${show ? ' show' : ''}`}>
     <div className="modal-content">
-      <span className="close" onClick={handleClose}>
+      <button type="button" className="button-unstyled close" onClick={handleClose}>
         &times;
-      </span>
+      </button>
       <div className="modal-body">{children}</div>
     </div>
   </div>

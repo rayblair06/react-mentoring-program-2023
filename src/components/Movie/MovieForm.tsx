@@ -1,5 +1,5 @@
 import { FC } from 'react';
-   
+
 import Select from 'react-select';
 import { Movie } from 'interfaces/Movie';
 

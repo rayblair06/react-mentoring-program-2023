@@ -43,23 +43,29 @@ const MovieCard: FC<MovieCardProps> = ({ key, movie, handleOpenModal, handleSele
       )}
 
       <Dropdown show={showDropdown} handleClose={handleHideDropdown}>
-        <li
-          data-action="edit"
-          onClick={() => {
-            handleOpenModal('editMovieModal');
-            handleSelectedMovie(movie.id);
-          }}
-        >
-          Edit
+        <li data-action="edit">
+          <button
+            type="button"
+            className="button-unstyled"
+            onClick={() => {
+              handleOpenModal('editMovieModal');
+              handleSelectedMovie(movie.id);
+            }}
+          >
+            Edit
+          </button>
         </li>
-        <li
-          data-action="delete"
-          onClick={() => {
-            handleOpenModal('deleteMovieModal');
-            handleSelectedMovie(movie.id);
-          }}
-        >
-          Delete
+        <li data-action="delete">
+          <button
+            type="button"
+            className="button-unstyled"
+            onClick={() => {
+              handleOpenModal('deleteMovieModal');
+              handleSelectedMovie(movie.id);
+            }}
+          >
+            Delete
+          </button>
         </li>
       </Dropdown>
 

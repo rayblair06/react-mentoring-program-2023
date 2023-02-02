@@ -76,15 +76,22 @@
         width: 160px;
         margin-left: 140px;
 
-        li {
+        button {
           padding: 8px 12px;
           cursor: pointer;
           list-style-type: none;
           transition: all 0.3s ease;
           user-select: none;
+          width: 100%;
+          text-align: left;
+          color: #ffffff;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
         }
 
-        li:hover {
+        button:hover {
           background-color: #f65261;
         }
       }
