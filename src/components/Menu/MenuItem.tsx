@@ -1,4 +1,3 @@
-import 'styles/app.scss';
 import { FC } from 'react';
 
 interface MenuItemProps {

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import 'styles/app.scss';
+
 import { Movie } from 'interfaces/Movie';
 import MovieCard from './MovieCard';
 

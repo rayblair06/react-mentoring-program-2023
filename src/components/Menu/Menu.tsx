@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import 'styles/app.scss';
+
 import MenuFilters from './MenuFilters';
 import MenuItem from './MenuItem';
 

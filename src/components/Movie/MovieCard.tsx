@@ -1,4 +1,3 @@
-import 'styles/app.scss';
 import { Movie } from 'interfaces/Movie';
 import { FC, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

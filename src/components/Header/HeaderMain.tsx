@@ -1,4 +1,3 @@
-import 'styles/app.scss';
 import HeaderSearch from './HeaderSearch';
 
 const HeaderMain = () => (

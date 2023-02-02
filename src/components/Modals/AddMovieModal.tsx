@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import 'styles/app.scss';
+
 import Modal from '../Utilities/Modal';
 import MovieForm from '../Movie/MovieForm';
 

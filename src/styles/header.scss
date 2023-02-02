@@ -2,14 +2,15 @@
   mix-blend-mode: normal;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4.07742px);
-  height: 316px;
-  max-height: 316px;
+  // height: 316px;
+  min-height: 316px;
   display: flex;
   justify-content: space-between;
   padding: 30px 56px;
   flex-flow: column;
 
   #top {
+    margin-bottom: 1em;
     display: flex;
     justify-content: space-between;
 

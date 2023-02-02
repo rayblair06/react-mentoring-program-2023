@@ -142,3 +142,67 @@
   background: black;
   padding: 15px 5px;
 }
+
+#movie-header {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+#movie-details {
+  padding: 0 3em;
+}
+
+#movie-title {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin-bottom: 0em;
+  }
+
+  h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.8em;
+    line-height: 17px;
+    opacity: 0.5;
+    margin-bottom: 2em;
+  }
+}
+
+#movie-info {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  color: #f65261;
+
+  div:nth-child(1) {
+    padding-right: 2rem;
+  }
+}
+
+#movie-overview {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 24px;
+
+  color: #ffffff;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+#top-search {
+  color: #f65261;
+  font-size: 1.4em;
+}
