@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import 'styles/app.scss';
+   
 
 interface DropdownProps {
   show: boolean;
