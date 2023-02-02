@@ -1,4 +1,3 @@
-import 'styles/app.scss';
 import Button from 'components/Utilities/Button';
 
 const HeaderSearch = () => (

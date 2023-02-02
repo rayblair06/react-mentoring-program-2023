@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import 'styles/app.scss';
+
 import LogoImage from 'images/netflixroulette.png';
 import Button from 'components/Utilities/Button';
 

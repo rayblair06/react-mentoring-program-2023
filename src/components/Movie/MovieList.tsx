@@ -1,4 +1,3 @@
-import 'styles/app.scss';
 import MovieCard from './MovieCard';
 import { Movie } from 'interfaces/Movie';
 import { FC } from 'react';

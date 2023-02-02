@@ -1,5 +1,3 @@
-import 'styles/app.scss';
-
 const MenuFilters = () => (
   <div id="filters">
     <p>Sort by</p>
