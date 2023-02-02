@@ -17,7 +17,7 @@ const HeaderMovie: FC<HeaderMovieProps> = ({ movie, handleSelectedMovie }) => (
         <img src={LogoImage} />
       </div>
 
-      <div id="top-search" onClick={() => handleSelectedMovie(null)}>
+      <div id="search" onClick={() => handleSelectedMovie(null)}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </div>
     </div>
@@ -31,8 +31,13 @@ const HeaderMovie: FC<HeaderMovieProps> = ({ movie, handleSelectedMovie }) => (
 
           <div id="movie-details">
             <div id="movie-title">
-              <h1>{movie.name}</h1>
-              <h2>{movie.genres}</h2>
+              <h1>
+                {movie.name}
+
+                <span>{movie.rating}</span>
+              </h1>
+
+              <h2>{movie.genres.join(', ').toString()}</h2>
             </div>
 
             <div id="movie-info">

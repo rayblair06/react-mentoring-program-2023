@@ -44,7 +44,7 @@ const initialState: InitialStateProps = {
   app: {
     title: 'Netflix Roulette',
   },
-  selectedMovie: 1,
+  selectedMovie: null,
   genres: [
     'Action & Adventure',
     'Biography',
