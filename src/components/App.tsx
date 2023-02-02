@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'styles/app.scss';
 import WebFont from 'webfontloader';
 import PulpFictionPoster from 'images/pulp-fiction.png';
@@ -25,6 +25,9 @@ import AddMovieModal from './Modals/AddMovieModal';
 import EditMovieModal from './Modals/EditMovieModal';
 import DeleteMovieModal from './Modals/DeleteMovieModal';
 import HeaderImage from 'images/header.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Button from './Utilities/Button';
 
 WebFont.load({
   google: {
@@ -147,32 +150,42 @@ const App = () => {
     setSelectedMovie(id);
   };
 
+  useEffect(() => {
+    //
+  }, [selectedMovie]);
+
   const handleAddMovie = (movie: Movie) => {
-    // TODO: To be completed in Task 5
-    // movies.push(movie);
-    // setMovies(movies);
+    movies.push(movie);
+    setMovies(movies);
   };
 
   const handleEditMovie = (updatedMovie: Movie) => {
-    // TODO: To be completed in Task 5
-    // const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === updatedMovie.id);
-    // movies[indexOfMovie] = updatedMovie;
-    // setMovies(movies);
+    const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === updatedMovie.id);
+
+    movies[indexOfMovie] = updatedMovie;
+    setMovies(movies);
   };
 
   const handleRemoveMovie = (id: any) => {
-    // TODO: To be completed in Task 5
-    // const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === id);
-    // if (indexOfMovie > -1) {
-    //   movies.splice(indexOfMovie, 1);
-    //   setMovies(movies);
-    // }
+    const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === id);
+
+    if (indexOfMovie > -1) {
+      movies.splice(indexOfMovie, 1);
+      setMovies(movies);
+    }
   };
 
   return (
     <Page>
+      {/* TODO: Move children components to Header component and pass props to 'return' correct Header based on selectedMovie prop. use useEffect if possible */}
       {selectedMovie ? (
         <Header styles={{ background: `#232323` }}>
+          <HeaderTop title={app.title}>
+            <div id="search" onClick={() => handleSelectedMovie(null)}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </div>
+          </HeaderTop>
+
           <HeaderMovie
             movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
             handleSelectedMovie={handleSelectedMovie}
@@ -180,7 +193,9 @@ const App = () => {
         </Header>
       ) : (
         <Header styles={{ background: `url(${HeaderImage})` }}>
-          <HeaderTop title={app.title} handleOpenModal={handleOpenModal} />
+          <HeaderTop title={app.title}>
+            <Button onClick={() => handleOpenModal('addMovieModal')}>+ Add Movie</Button>
+          </HeaderTop>
           <HeaderMain />
         </Header>
       )}
