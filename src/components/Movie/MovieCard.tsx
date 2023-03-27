@@ -70,7 +70,7 @@ const MovieCard: FC<MovieCardProps> = ({ key, movie, handleOpenModal, handleSele
         </li>
       </Dropdown>
 
-      <img src={movie.image} alt={movie.image} height="455" width="322" />
+      <img src={movie.image} alt={movie.name} height="455" width="322" />
 
       <div className="card__title">
         <p>{movie.name}</p>

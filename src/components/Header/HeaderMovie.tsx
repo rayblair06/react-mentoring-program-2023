@@ -12,7 +12,7 @@ const HeaderMovie: FC<HeaderMovieProps> = ({ movie, handleSelectedMovie }) => (
     {movie && (
       <div id="movie-header">
         <div id="movie-image">
-          <img src={movie.image} alt={movie.image} height="455" width="322" />
+          <img src={movie.image} alt={movie.name} height="455" width="322" />
         </div>
 
         <div id="movie-details">
