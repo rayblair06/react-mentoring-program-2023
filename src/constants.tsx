@@ -5,3 +5,9 @@ export const enum GenreEnum {
   MUSIC = 'Music',
   OSCARWINNINGMOVIE = 'Oscar winning Movie',
 }
+
+export const enum ModalState {
+  addMovieModal = 'addMovieModal',
+  editMovieModal = 'editMovieModal',
+  deleteMovieModal = 'deleteMovieModal',
+}

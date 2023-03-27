@@ -20,7 +20,7 @@ import Container from 'components/Utilities/Container';
 import ErrorBoundary from 'components/ErrorBoundary';
 import { AppConfig } from 'interfaces/AppConfig';
 import { Movie, Movies } from 'interfaces/Movie';
-import { GenreEnum } from '../constants';
+import { GenreEnum, ModalState } from '../constants';
 import AddMovieModal from './Modals/AddMovieModal';
 import EditMovieModal from './Modals/EditMovieModal';
 import DeleteMovieModal from './Modals/DeleteMovieModal';
@@ -136,14 +136,14 @@ const App = () => {
   const [selectedMovie, setSelectedMovie] = useState(initialState.selectedMovie);
   const [movies, setMovies] = useState(initialState.movies);
 
-  const [showModal, setModal] = useState('');
+  const [showModal, setModal] = useState<ModalState | null>(null);
 
-  const handleOpenModal = (modal: any) => {
+  const handleOpenModal = (modal: ModalState) => {
     setModal(modal);
   };
 
   const handleCloseModal = () => {
-    setModal('');
+    setModal(null);
   };
 
   const handleSelectedMovie = (id: any) => {
@@ -194,7 +194,7 @@ const App = () => {
       ) : (
         <Header styles={{ background: `url(${HeaderImage})` }}>
           <HeaderTop title={app.title}>
-            <Button onClick={() => handleOpenModal('addMovieModal')}>+ Add Movie</Button>
+            <Button onClick={() => handleOpenModal(ModalState.addMovieModal)}>+ Add Movie</Button>
           </HeaderTop>
           <HeaderMain />
         </Header>
@@ -221,14 +221,14 @@ const App = () => {
       </Footer>
 
       <AddMovieModal
-        show={showModal === 'addMovieModal'}
+        show={showModal === ModalState.addMovieModal}
         handleClose={handleCloseModal}
         handleAddMovie={handleAddMovie}
         genres={genres}
       />
 
       <EditMovieModal
-        show={showModal === 'editMovieModal'}
+        show={showModal === ModalState.editMovieModal}
         handleClose={handleCloseModal}
         handleEditMovie={handleEditMovie}
         movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
@@ -236,7 +236,7 @@ const App = () => {
       />
 
       <DeleteMovieModal
-        show={showModal === 'deleteMovieModal'}
+        show={showModal === ModalState.deleteMovieModal}
         handleClose={handleCloseModal}
         handleRemoveMovie={handleRemoveMovie}
         movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
