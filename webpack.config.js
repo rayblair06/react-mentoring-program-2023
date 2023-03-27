@@ -14,6 +14,7 @@ module.exports = {
       images: path.resolve(__dirname, 'src/images/'),
       interfaces: path.resolve(__dirname, 'src/interfaces/'),
       styles: path.resolve(__dirname, 'src/styles/'),
+      utilities: path.resolve(__dirname, 'src/utilities/'),
     },
   },
   module: {

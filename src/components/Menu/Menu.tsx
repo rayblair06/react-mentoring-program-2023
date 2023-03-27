@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import MenuFilters from './MenuFilters';
 import MenuItem from './MenuItem';
 

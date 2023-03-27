@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import 'styles/app.scss';
 import WebFont from 'webfontloader';
 import PulpFictionPoster from 'images/pulp-fiction.png';
@@ -17,17 +18,22 @@ import LogoImage from 'images/netflixroulette.png';
 import Container from 'components/Utilities/Container';
 import ErrorBoundary from 'components/ErrorBoundary';
 import { AppConfig } from 'interfaces/AppConfig';
-import { Movies } from 'interfaces/Movie';
+import { Movie, Movies } from 'interfaces/Movie';
 import { GenreEnum } from '../constants';
+import AddMovieModal from './Modals/AddMovieModal';
+import EditMovieModal from './Modals/EditMovieModal';
+import DeleteMovieModal from './Modals/DeleteMovieModal';
 
 WebFont.load({
   google: {
-    families: ['Montserrat:300,400,500,600,700', 'sans-serif'],
+    families: ['Montserrat:100,200,300,400,500,600,700', 'sans-serif'],
   },
 });
 
 interface InitialStateProps {
   app: AppConfig;
+  selectedMovie: number;
+  genres: Array<string>;
   menu: Array<string>;
   movies: Movies;
 }
@@ -36,6 +42,18 @@ const initialState: InitialStateProps = {
   app: {
     title: 'Netflix Roulette',
   },
+  selectedMovie: 0,
+  genres: [
+    'Action & Adventure',
+    'Biography',
+    'Comedy',
+    'Crime',
+    'Documentary',
+    'Drama',
+    'Horror',
+    'Music',
+    'Oscar winning Movie',
+  ],
   menu: ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'],
   movies: [
     {
@@ -108,12 +126,51 @@ const initialState: InitialStateProps = {
 };
 
 const App = () => {
-  const { app, menu, movies } = initialState;
+  const { app, genres, menu } = initialState;
+
+  const [selectedMovie, setSelectedMovie] = useState(initialState.selectedMovie);
+  const [movies, setMovies] = useState(initialState.movies);
+
+  const [showModal, setModal] = useState('');
+
+  const handleOpenModal = (modal: any) => {
+    setModal(modal);
+  };
+
+  const handleCloseModal = () => {
+    setModal('');
+  };
+
+  const handleSelectedMovie = (id: any) => {
+    setSelectedMovie(id);
+  };
+
+  const handleAddMovie = (movie: Movie) => {
+    // TODO: To be completed in Task 5
+    // movies.push(movie);
+    // setMovies(movies);
+  };
+
+  const handleEditMovie = (updatedMovie: Movie) => {
+    // TODO: To be completed in Task 5
+    // const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === updatedMovie.id);
+    // movies[indexOfMovie] = updatedMovie;
+    // setMovies(movies);
+  };
+
+  const handleRemoveMovie = (id: any) => {
+    // TODO: To be completed in Task 5
+    // const indexOfMovie = movies.findIndex((movie: Movie) => movie.id === id);
+    // if (indexOfMovie > -1) {
+    //   movies.splice(indexOfMovie, 1);
+    //   setMovies(movies);
+    // }
+  };
 
   return (
     <Page>
       <Header>
-        <HeaderTop title={app.title} />
+        <HeaderTop title={app.title} handleOpenModal={handleOpenModal} />
         <HeaderMain />
       </Header>
 
@@ -125,13 +182,39 @@ const App = () => {
         <div className="separator" />
 
         <ErrorBoundary>
-          <MovieList movies={movies} />
+          <MovieList
+            movies={movies}
+            handleOpenModal={handleOpenModal}
+            handleSelectedMovie={handleSelectedMovie}
+          />
         </ErrorBoundary>
       </Container>
 
       <Footer>
         <img src={LogoImage} alt={app.title} />
       </Footer>
+
+      <AddMovieModal
+        show={showModal === 'addMovieModal'}
+        handleClose={handleCloseModal}
+        handleAddMovie={handleAddMovie}
+        genres={genres}
+      />
+
+      <EditMovieModal
+        show={showModal === 'editMovieModal'}
+        handleClose={handleCloseModal}
+        handleEditMovie={handleEditMovie}
+        movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
+        genres={genres}
+      />
+
+      <DeleteMovieModal
+        show={showModal === 'deleteMovieModal'}
+        handleClose={handleCloseModal}
+        handleRemoveMovie={handleRemoveMovie}
+        movie={movies.find((movie: Movie) => movie.id === selectedMovie)}
+      />
     </Page>
   );
 };

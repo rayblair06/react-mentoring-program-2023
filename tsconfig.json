@@ -16,6 +16,7 @@
             "@images/*":["src/images/*"],
             "@interfaces/*":["src/interfaces/*"],
             "@styles/*":["src/styles/*"],
+            "@utilities/*":["src/utilities/*"],
         },
         "jsx": "react-jsx",
     },
