@@ -16,7 +16,7 @@ const MovieForm: FC<MovieFormProps> = ({ movie, genres }) => {
       <div className="column">
         <label>
           Title
-          <input type="text" placeholder="Title" value={movie?.name ? movie.name : ''} />
+          <input type="text" placeholder="Title" value={movie?.name ?? ''} />
         </label>
       </div>
 
